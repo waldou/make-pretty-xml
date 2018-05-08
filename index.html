@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Make Pretty XML</title>
+		<meta name="description" content="Easy to use tool to present XML in a readable format."/>
+		<meta name="keywords" content="xml, pretty, format, tool, waldo, urribarri, waldou, maracaibo, zulia, venezuela, santiago, chile" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="canonical" href="http://waldou.github.com/make-pretty-xml/"/>
+		<link rel="stylesheet" type="text/css" href="node_modules/normalize.css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	</head>
+	<body>
+		<div id="container">
+			<div id="entryAreaContainer">
+				<div id="title">Make Pretty XML</div>
+				<div id="description">Paste XML String into the Text Area below and click the "Make It Pretty" button.</div>
+			</div>
+			<div id="prettyXmlsContainer"></div>
+			<div id="footer">
+				<br /><br />
+				Developed by: <a href="http://www.waldou.com/">Waldo Urribarri</a><br />
+				Palette source: <a href="http://www.colourlovers.com/palette/2720547/Starshed">COLOURlovers</a><br />
+				See source code: <a href="https://github.com/waldou/make-xml-pretty">Github</a><br />
+				<br />
+			</div>
+		</div>
+		<script id="entryAreaTemplate" type="text/html">
+			<div id="entryArea">
+				<div><textarea id="txtArea" rows="10"></textarea></div>
+				<div><fieldset id="indentType"><legend>Indent type:</legend><input type="radio" name="indentType" value="0" checked>Two Spaces</input><input type="radio" name="indentType" value="1">Tabs</fieldset></div>
+				<div><button id="makeItPrettyBtn" class="btn" style="padding: 10px 20px 10px 20px;" type="button">Make It Pretty</button></div>
+			</div>
+		</script>
+		<script id="prettyXmlsTemplate" type="text/html"></script>
+		<script id="prettyXmlTemplate" type="text/html">
+			<div id="<%=id%>" class="prettyXml">
+				<div class="prettyXmlHeader">
+					<div class="prettyXmlHeaderText"><%=header%></div>
+					<div class="deleteButtonDiv">
+						<button id="downloadBtn" class="btn" type="button">Download</button>
+						<button id="deleteBtn" class="btn" type="button">Delete</button>
+					</div>
+					<div class="float-break"></div>
+				</div>
+				<div class="itemId"><%=id%></div>
+				<div class="prettyXmlText"></div>
+				<div class="float-break"></div>
+			</div>
+		</script>
+		<script data-main = "js/main" src = "node_modules/requirejs/require.js"></script>
+	</body>
+</html>

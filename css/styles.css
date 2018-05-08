@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+body {
+	background-color:#FAF5E2;
+	color:#4D4B4C;
+	margin:0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+	margin:50px auto 50px auto;
+	max-width:720px;
+	box-sizing:border-box;
+}
+
+#title{
+	font-size:2em;
+	padding:0px 20px 0px 0px;
+}
+
+#description {
+	padding:20px;
+		padding:20px 30px 20px 20px;
+}
+
+#entryAreaContainer {
+	width:100%;
+	padding:20px;
+	margin-bottom:20px;
+	box-sizing:border-box;
+	background-color:#8EC09A;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#entryArea div {
+	padding-bottom:20px;
+}
+
+#txtArea {
+	width:100%;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size:0.8em;
+}
+
+#indentType {
+	border:1px solid #D4EADD;
+}
+
+#prettyXmlsContainer {
+	width:100%;
+	box-sizing:border-box;
+}
+
+.prettyXml {
+	display:none;
+	padding:20px;
+	background-color:#D4EADD;
+	margin-bottom:10px;
+	box-sizing:border-box;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.prettyXmlHeader {
+	padding:5px;
+}
+
+.prettyXmlHeaderText {
+	float:left;
+	font-size:1.2em;
+	line-height:30px;
+}
+
+.deleteButtonDiv {
+	float:right;
+}
+
+.btn {
+	border:none;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	font-family: Arial;
+	color: #FAF5E2;
+	font-size: 1em;
+	background: #EC483C;
+	padding: 5px 10px 5px 10px;
+	margin:0px 5px 0px 5px;
+	text-decoration: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn:hover {
+	cursor:pointer;
+	background: #4D4B4C;
+	text-decoration: none;
+	transition:150ms;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.itemId {
+	float:left;
+	width:10%;
+	font-size:2em;
+	box-sizing:border-box;
+	word-break:break-word;	
+}
+
+.prettyXmlText {
+	float:right;
+	width:90%;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size:0.8em;
+	background-color:#FFFFFF;
+	padding:5px;
+	box-sizing:border-box;
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.float-break {
+	float:none;
+	clear:both;
+}
+
+#footer {
+	text-align:center;
+}
+
+#footer a:link {text-decoration: underline; color: #4D4B4C;}
+#footer a:visited {text-decoration: none; color: #4D4B4C;}
+#footer a:active {text-decoration: none; color: #4D4B4C;}
+#footer a:hover {text-decoration: none; color: #EC483C; transition:150ms;}
+#footer {color: #4D4B4C}
