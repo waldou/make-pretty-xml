@@ -12,7 +12,8 @@ define(function(require) {
 		},
 		events: {
 			"click #deleteBtn": "onClickDelete",
-			"click #downloadBtn": "onClickDownload"
+			"click #downloadBtn": "onClickDownload",
+			"click #copyToClipBtn": "onClickCopyToClip"
 		},
 		onClickDelete: function() {
 			console.log("Item " + this.model.get("id") + " removed from list...");
@@ -23,7 +24,7 @@ define(function(require) {
 		},
 		onClickDownload: function() {
 			var document = this.$el.prop("ownerDocument");
-			var text = this.$el.find(".prettyXmlText").text();
+			var text = this.model.get("xml");
 			var element = document.createElement('a');
 			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 			element.setAttribute('download', "prettyXml" + this.model.get("id") + ".txt");
@@ -31,6 +32,36 @@ define(function(require) {
 			document.body.appendChild(element);
 			element.click();
 			document.body.removeChild(element);
+		},
+		onClickCopyToClip: function() {
+			var document = this.$el.prop("ownerDocument");
+			var text = this.$el.find(".prettyXmlText").text();
+			var success = true, range = document.createRange(), selection;
+			if (window.clipboardData) {
+				// For IE
+				window.clipboardData.setData("Text", text);
+			} else {
+				var tmpElem = $('<pre>');
+					tmpElem.css({
+					position: "absolute",
+					left:     "-1000px",
+					top:      "-1000px",
+				});
+				tmpElem.text(text);
+				$("body").append(tmpElem);
+				range.selectNodeContents(tmpElem.get(0));
+				selection = window.getSelection();
+				selection.removeAllRanges();
+				selection.addRange(range);
+				try {
+					success = document.execCommand ("copy", false, null);
+				} catch (e) {
+					alert('Failed to copy.');
+				}
+				if (success) {
+					tmpElem.remove();
+				}
+			}
 		},
 		render: function() {
 			var template = _.template($("#prettyXmlTemplate").html());
