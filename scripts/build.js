@@ -53,7 +53,8 @@ shelljs.cp('-Rf', './node_modules/underscore/underscore-min.js', './dist/node_mo
 shelljs.cp('-Rf', './node_modules/backbone/backbone-min.js', './dist/node_modules/backbone/backbone-min.js');
 shelljs.cp('-Rf', './node_modules/normalize.css/normalize.css', './dist/node_modules/normalize.css/normalize.css');
 
-console.log("Copying index.html file...")
+console.log("Copying static files...")
 shelljs.cp('-R', './index.html', './dist/index.html');
+shelljs.cp('-R', './favicon.ico', './dist/favicon.ico');
 
 console.log("Done. Check /dist folder...");
