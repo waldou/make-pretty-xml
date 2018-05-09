@@ -30,6 +30,7 @@ define(function(require) {
 					var prettyXmlModel = new PrettyXmlModel({id: id, header: "Characters: " + strPrettyXml.length, xml: strPrettyXml})
 					this.listModel.add(prettyXmlModel);
 					this.listModel.nextId = id+1;
+					$text.val("");
 				}
 			}
 		},
