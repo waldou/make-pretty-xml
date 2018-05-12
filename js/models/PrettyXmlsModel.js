@@ -9,6 +9,10 @@ define(function(require) {
 		initialize: function() {
 			console.log("Initializing new PrettyXmlsModel...");
 			this.nextId = 1;
+		},
+		add: function(item) {
+			item.set("id", this.nextId++);
+			Backbone.Collection.prototype.add.call(this, item);
 		}
 	});
 	

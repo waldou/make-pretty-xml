@@ -44,8 +44,16 @@ body {
 	font-size:0.8em;
 }
 
+#status {
+	font-weight:bold;
+}
+
 #indentType {
 	border:1px solid #D4EADD;
+}
+
+#makeItPrettyBtn {
+	padding: 10px 20px 10px 20px;
 }
 
 #prettyXmlsContainer {
@@ -69,13 +77,13 @@ body {
 }
 
 .prettyXmlHeaderText {
-	float:left;
-	font-size:1.2em;
-	line-height:30px;
+	font-size:0.8em;
+	text-align:left;
 }
 
-.deleteButtonDiv {
-	float:right;
+.buttonsDiv {
+	margin:0px 0px 10px 0px;
+	text-align:right;
 }
 
 .btn {
@@ -130,6 +138,10 @@ body {
 	white-space: -pre-wrap;      /* Opera 4-6 */
 	white-space: -o-pre-wrap;    /* Opera 7 */
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.validationError {
+	font-weight:bold;
 }
 
 .float-break {

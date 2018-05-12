@@ -45,13 +45,15 @@ console.log("Copying js folder...")
 shelljs.cp('-R', './js', './dist/');
 
 console.log("Copying node_modules...")
-shelljs.mkdir('-p', './dist/node_modules/requirejs/', './dist/node_modules/jquery/dist/',
-	'./dist/node_modules/underscore/', './dist/node_modules/backbone/', './dist/node_modules/normalize.css/');
+shelljs.mkdir('-p',
+	'./dist/node_modules/requirejs/', './dist/node_modules/jquery/dist/', './dist/node_modules/underscore/',
+	'./dist/node_modules/backbone/', './dist/node_modules/normalize.css/', './dist/node_modules/moment/min/');
 shelljs.cp('-Rf', './node_modules/requirejs/require.js', './dist/node_modules/requirejs/require.js');
 shelljs.cp('-Rf', './node_modules/jquery/dist/jquery.min.js', './dist/node_modules/jquery/dist/jquery.min.js');
 shelljs.cp('-Rf', './node_modules/underscore/underscore-min.js', './dist/node_modules/underscore/underscore-min.js');
 shelljs.cp('-Rf', './node_modules/backbone/backbone-min.js', './dist/node_modules/backbone/backbone-min.js');
 shelljs.cp('-Rf', './node_modules/normalize.css/normalize.css', './dist/node_modules/normalize.css/normalize.css');
+shelljs.cp('-Rf', './node_modules/moment/min/moment.min.js', './dist/node_modules/moment/min/moment.min.js');
 
 console.log("Copying static files...")
 shelljs.cp('-R', './index.html', './dist/index.html');

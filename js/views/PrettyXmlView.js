@@ -7,7 +7,7 @@ define(function(require) {
 		initialize: function(options){
 			console.log("Initializing new PretyXmlView...");
 			if (!(options && options.model))
-				throw new Error("Model is not specified.");
+				throw new Error("Model is not specified!");
 			this.model.on("change", this.render, this);
 		},
 		events: {
@@ -23,15 +23,21 @@ define(function(require) {
 			});
 		},
 		onClickDownload: function() {
-			var document = this.$el.prop("ownerDocument");
-			var text = this.model.get("xml");
-			var element = document.createElement('a');
-			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-			element.setAttribute('download', "prettyXml" + this.model.get("id") + ".txt");
-			element.style.display = 'none';
-			document.body.appendChild(element);
-			element.click();
-			document.body.removeChild(element);
+			try {
+				var filename = "prettyXml" + this.model.get("id") + ".txt";
+				console.log("Downloading file " + filename + "...");
+				var document = this.$el.prop("ownerDocument");
+				var text = this.model.get("xml");
+				var element = document.createElement('a');
+				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+				element.setAttribute('download', filename);
+				element.style.display = 'none';
+				document.body.appendChild(element);
+				element.click();
+				document.body.removeChild(element);
+			} catch(e) {
+				console.log("Failed to generate file for download!");
+			}
 		},
 		onClickCopyToClip: function() {
 			var document = this.$el.prop("ownerDocument");
@@ -61,6 +67,9 @@ define(function(require) {
 				if (success) {
 					tmpElem.remove();
 				}
+			}
+			if (success) {
+				console.log("Text was copied to clipboard...");
 			}
 		},
 		render: function() {
