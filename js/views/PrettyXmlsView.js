@@ -8,7 +8,7 @@ define(function(require) {
 		initialize: function(options){
 			console.log("Initializing new PrettyXmlsView...");
 			if (!(options && options.model))
-				throw new Error("Model is not specified.");
+				throw new Error("Model is not specified!");
 			this.model.on("add", this.onAddItem, this);
 		},
 		onAddItem: function(item){
