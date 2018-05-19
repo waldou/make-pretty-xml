@@ -32,9 +32,11 @@ define(function(require) {
 				if(xml != '') {
 					var indentType = this.model.get("indentType");
 					var indent = this.model.get("indents")[indentType];
-					var strPrettyXml = MakePrettyXml.pretty(xml, indent);
-					var validationError = ValidateXml.validate(strPrettyXml);
-					var prettyXmlModel = new PrettyXmlModel({xml: strPrettyXml, validationError: validationError})
+					var strPrettyXml = MakePrettyXml.prettyPaint(xml, indent);
+					var strPrettyXmlRaw = MakePrettyXml.pretty(xml, indent);
+					var validationError = ValidateXml.validate(strPrettyXmlRaw);
+					var isValidXml = (validationError=="No errors found") ? true : false;
+					var prettyXmlModel = new PrettyXmlModel({xml: strPrettyXml, xmlRaw: strPrettyXmlRaw, validationError: validationError, isValidXml: isValidXml})
 					this.listModel.add(prettyXmlModel);
 					$text.val("");
 					this.$("#status").text("No errors found");
