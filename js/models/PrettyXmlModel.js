@@ -6,7 +6,9 @@ define(function(require) {
 
 	var PrettyXmlModel = Backbone.Model.extend({
 		defaults: {
-			validationError: ""
+			validationError: "",
+			viewType: "0",
+			isValidXml: false
 		},
 		initialize: function() {
 			console.log("Initializing new PrettyXmlModel...");
@@ -14,7 +16,9 @@ define(function(require) {
 		},
 		validate: function(attrs) {
 			if(!attrs.xml)
-				return "XML String is not present!";
+				return "Pretty XML String is not present!";
+			if(!attrs.xmlRaw)
+				return "Raw XML String is not present!";
 		}
 	});
 	

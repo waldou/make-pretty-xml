@@ -52,6 +52,10 @@ body {
 	border:1px solid #D4EADD;
 }
 
+.typeInput {
+	margin:0px 10px 0px 10px;
+}
+
 #makeItPrettyBtn {
 	padding: 10px 20px 10px 20px;
 }
@@ -84,6 +88,11 @@ body {
 .buttonsDiv {
 	margin:0px 0px 10px 0px;
 	text-align:right;
+}
+
+#viewType {
+	float:left;
+	border:none;
 }
 
 .btn {
@@ -140,6 +149,56 @@ body {
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
+.addLineNumber {
+	counter-reset: line;
+}
+
+.addLineNumber span:before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  padding: 0 .5em;
+  margin-right: .5em;
+  color: #888
+}
+
+.prettyXmlSymbol {
+	color:#EC483C;
+	font-weight:normal;
+}
+
+.prettyXmlTagText {
+	color:#4D4B4C;
+	font-weight:normal;
+}
+
+.prettyXmlQuotedText {
+	color:#8EC09A;
+	font-weight:normal;
+}
+
+.prettyXmlValue {
+	color:#4D4B4C;
+	font-weight:bold;
+}
+
+.prettyXmlTextRaw {
+	float:right;
+	width:90%;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size:0.8em;
+	background-color:#FFFFFF;
+	padding:5px;
+	box-sizing:border-box;
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	display:none;
+}
+
 .validationError {
 	font-weight:bold;
 }
@@ -158,3 +217,7 @@ body {
 #footer a:active {text-decoration: none; color: #4D4B4C;}
 #footer a:hover {text-decoration: none; color: #EC483C; transition:150ms;}
 #footer {color: #4D4B4C}
+
+@media (max-width: 720px) {
+	#container { margin:50px 10px 50px 10px; }
+}
