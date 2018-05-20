@@ -20,7 +20,7 @@ define(function(require) {
 	var ValidateXml = {
 		validate: function(xml) {
 			if(xml == "") {
-				return "No errors found";
+				return { isValid: true, validationError: "No errors found" };
 			}
 			// For IE < 11
 			if (window.ActiveXObject) {
@@ -30,24 +30,24 @@ define(function(require) {
 				if(xmlDoc.parseError.errorCode != 0) {
 					return xmlDoc.parseError.reason + " - Line " + xmlDoc.parseError.line;
 				} else {
-					return "No errors found";
+					return { isValid: true, validationError: "No errors found" };
 				}
 			} else if (window.document.implementation.createDocument) {
 				try {
 					var parser = new DOMParser();
 					var xmlDoc = parser.parseFromString(xml, "application/xml");
 				} catch(e) {
-					return "Invalid XML";
+					return { isValid: false, validationError: "Invalid XML" };
 				}
 				if (xmlDoc == undefined) {
-					return "Invalid XML";
+					return { isValid: false, validationError: "Invalid XML" };
 				} else if(xmlDoc.getElementsByTagName("parsererror").length > 0) {
-					return checkXML(xmlDoc.getElementsByTagName("parsererror")[0]);
+					return { isValid: false, validationError: checkXML(xmlDoc.getElementsByTagName("parsererror")[0]) };
 				} else {
-					return "No errors found";
+					return { isValid: true, validationError: "No errors found" };
 				}
 			} else {
-				return "Your browser cannot handle XML validation";
+				return { isValid: false, validationError: "Your browser cannot handle XML validation" };
 			}
 		}
 	};
