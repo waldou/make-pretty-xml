@@ -32,11 +32,14 @@ define(function(require) {
 				if(xml != '') {
 					var indentType = this.model.get("indentType");
 					var indent = this.model.get("indents")[indentType];
-					var strPrettyXml = MakePrettyXml.prettyPaint(xml, indent);
-					var strPrettyXmlRaw = MakePrettyXml.pretty(xml, indent);
-					var validationError = ValidateXml.validate(strPrettyXmlRaw);
-					var isValidXml = (validationError=="No errors found") ? true : false;
-					var prettyXmlModel = new PrettyXmlModel({xml: strPrettyXml, xmlRaw: strPrettyXmlRaw, validationError: validationError, isValidXml: isValidXml})
+					var result = MakePrettyXml.pretty(xml, indent);
+					var resultValidate = ValidateXml.validate(result.prettyRawXml);
+					var prettyXmlModel = new PrettyXmlModel({
+						xml: result.prettyColoredXml,
+						xmlRaw: result.prettyRawXml,
+						isValidXml: resultValidate.isValid,
+						validationError: resultValidate.validationError
+					})
 					this.listModel.add(prettyXmlModel);
 					$text.val("");
 					this.$("#status").text("No errors found");
@@ -46,7 +49,7 @@ define(function(require) {
 		onKeyUpTxtArea: function() {
 			var xml = this.$("#txtArea").val();
 			var $status = this.$("#status");
-			$status.text(ValidateXml.validate(xml));
+			$status.text(ValidateXml.validate(xml).validationError);
 		},
 		render: function() {
 			var template = _.template($("#entryAreaTemplate").html());
