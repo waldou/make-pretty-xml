@@ -39,7 +39,7 @@ define(function(require) {
 						xmlRaw: result.prettyRawXml,
 						isValidXml: resultValidate.isValid,
 						validationError: resultValidate.validationError
-					})
+					});
 					this.listModel.add(prettyXmlModel);
 					$text.val("");
 					this.$("#status").text("No errors found");
@@ -56,7 +56,7 @@ define(function(require) {
 			var html = template(this.model.toJSON());
 			this.$el.append(html);
 			return this;
-		},
+		}
 	});
 	
     return EntryAreaView;

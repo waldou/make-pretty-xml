@@ -17,7 +17,7 @@ define(function(require) {
 		var entryAreaModel = new EntryAreaModel();
 		var entryAreaView = new EntryAreaView({ el: '#entryAreaContainer', model: entryAreaModel, listModel: prettyXmlsModel});
 		entryAreaView.render();
-	}
+	};
 	
     return {
         init: init

@@ -44,7 +44,19 @@ for(var i=0; i< cssFiles.length; i++) {
 console.log("Copying js folder...")
 shelljs.cp('-R', './js', './dist/');
 
-console.log("Copying node_modules...")
+var jsFiles = getFiles("dist/js", /(\/\w+\.(js))$/);
+for(var i=0; i< jsFiles.length; i++) {
+	console.log("Minifying file: " + jsFiles[i]);
+	var fileContent = fs.readFileSync(jsFiles[i], "utf8");
+	fileContent = fileContent.replace(/(\/\/[ \w<>?!0-9]+)/g, '');
+	fileContent = fileContent.replace(/(\r\n)/g, ' ');
+	fileContent = fileContent.replace(/\t+/g, ' ');
+	fileContent = fileContent.replace(/  +/g, ' ');
+	fileContent = fileContent.replace(/( = )/g, '=');
+	fs.writeFileSync(jsFiles[i], fileContent);
+}
+
+console.log("Copying node_modules...");
 shelljs.mkdir('-p',
 	'./dist/node_modules/requirejs/', './dist/node_modules/jquery/dist/', './dist/node_modules/underscore/',
 	'./dist/node_modules/backbone/', './dist/node_modules/normalize.css/', './dist/node_modules/moment/min/');

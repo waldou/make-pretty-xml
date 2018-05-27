@@ -15,7 +15,7 @@ define(function(require) {
 			}
 		}
 		return txt;
-	}
+	};
 
 	var ValidateXml = {
 		validate: function(xml) {
