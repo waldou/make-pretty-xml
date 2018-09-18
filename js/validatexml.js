@@ -19,6 +19,9 @@ define(function(require) {
 
 	var ValidateXml = {
 		validate: function(xml) {
+			if(xml === undefined) {
+				throw new Error("invalid parameters");
+			}
 			if(xml == "") {
 				return { isValid: true, validationError: "No errors found" };
 			}

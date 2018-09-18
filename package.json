@@ -23,5 +23,8 @@
   },
   "scripts": {
     "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "jasmine": "2.4.1"
   }
 }

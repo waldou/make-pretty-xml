@@ -2,6 +2,10 @@ define(function(require) {
 
 	var MakePretty = {
 		pretty: function(originalXml, tabchar) {
+			if(originalXml === undefined || tabchar === undefined) {
+				throw new Error("invalid parameters");
+			}
+
 			console.log("Making a pretty XML...");
 		
 			var prettyRawXml = '';
