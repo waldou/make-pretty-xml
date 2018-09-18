@@ -8,3 +8,6 @@ Easy to use tool to present XML in a readable format. The project is structured 
 npm install
 npm run build
 ```
+
+### Running tests:
+Open test/SpecRunner.html in a browser to see the Jasmine report of unit tests.
