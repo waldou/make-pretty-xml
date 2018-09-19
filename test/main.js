@@ -37,6 +37,8 @@ require(['jasmine-boot'], function () {
     'js/models/EntryAreaModel.spec',
     'js/models/PrettyXmlModel.spec',
     'js/models/PrettyXmlsModel.spec',
+
+    'js/views/PrettyXmlsView.spec',
   ], function(){
     //trigger Jasmine
     window.onload();

@@ -2,12 +2,17 @@ define(['js/models/PrettyXmlsModel', 'js/models/PrettyXmlModel'], function(Prett
 
     describe('PrettyXmlsModel tests', function() {
 
-        it('new models should have starting nextId', function() {
+        describe('new models', function() {
+
             var model = new PrettyXmlsModel();
-			expect(model.nextId).toBeDefined();
+
+            it('should have starting nextId', function() {
+                expect(model.nextId).toBeDefined();
+            });
+
         });
 
-        it('models should autoincrement item ids', function() {
+        it('should autoincrement item ids', function() {
             var model = new PrettyXmlsModel();
             expect(model.nextId).toBe(1);
             model.add(new PrettyXmlModel({ xml: 'a', xmlRaw: 'a' }));

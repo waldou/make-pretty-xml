@@ -11,7 +11,29 @@
         <script src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
 
         <script type="text/javascript" src="../node_modules/requirejs/require.js" data-main="main"></script>
+
+        <script>
+            function includeBody() {
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200 || this.status == 0) {
+                            var idx1 = this.responseText.indexOf('<body');
+                            var idx2 = this.responseText.indexOf('</body>');
+                            var body = this.responseText.substring(idx1, idx2 + 7);
+                            var container = document.createElement("div");
+                            container.style.display = 'none';
+                            container.innerHTML = body;
+                            document.getElementsByTagName('body')[0].appendChild(container);
+                        }
+                    }
+                } 
+                xhttp.open("GET", '../index.html', true);
+                xhttp.send();
+            }
+        </script>
     </head>
     <body>
+        <script>includeBody();</script>
     </body>
 </html>
