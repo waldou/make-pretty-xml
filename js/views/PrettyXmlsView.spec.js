@@ -39,7 +39,8 @@ define([
         it('when adding new items to model should render new items', function() {
             var model = new PrettyXmlsModel();
             var view = new PrettyXmlsView({el: '#prettyXmlsContainer', model: model});
-            var container = $('#prettyXmlsContainer');
+            view.render();
+            var container = $('#prettyXmlsContainer #itemsContainer');
             expect(container.children().length).toBe(0);
             model.add(new PrettyXmlModel({ xml: 'a', xmlRaw: 'a' }));
             expect(container.children().length).toBe(1);

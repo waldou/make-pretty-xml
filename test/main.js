@@ -38,8 +38,8 @@ require(['jasmine-boot'], function () {
     'js/models/PrettyXmlModel.spec',
     'js/models/PrettyXmlsModel.spec',
 
-    'js/views/EntryAreaView.spec',
-    'js/views/PrettyXmlView.spec',
+    //'js/views/EntryAreaView.spec',
+    //'js/views/PrettyXmlView.spec',
     'js/views/PrettyXmlsView.spec',
   ], function(){
     //trigger Jasmine
