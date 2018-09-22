@@ -17,7 +17,7 @@ Hint: Close all Chrome instances before running the spec runner.
 **Using Windows**:
 
 ```
-chrome.exe --allow-file-access-from-file
+chrome.exe --allow-file-access-from-files
 ```
 
 **Using Mac**:

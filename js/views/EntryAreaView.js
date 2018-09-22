@@ -23,7 +23,7 @@ define(function(require) {
 		},
 		onClickIndentType: function() {
 			var indentType = this.$("#indentType").children('input:checked').val();
-			this.model.set("indentType", indentType);
+			this.model.set("indentType", parseInt(indentType));
 		},
 		onClickSubmit: function() {
 			var $text = this.$("#txtArea");

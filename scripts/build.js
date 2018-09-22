@@ -44,14 +44,19 @@ for(var i=0; i< cssFiles.length; i++) {
 console.log("Copying js folder...")
 shelljs.cp('-R', './js', './dist/');
 
+var specFiles = getFiles("dist/js", /(\/\w+\.spec\.(js))$/);
+for(var i=0; i< specFiles.length; i++) {
+	shelljs.rm(specFiles[i]);
+}
+
 var jsFiles = getFiles("dist/js", /(\/\w+\.(js))$/);
 for(var i=0; i< jsFiles.length; i++) {
 	console.log("Minifying file: " + jsFiles[i]);
 	var fileContent = fs.readFileSync(jsFiles[i], "utf8");
 	fileContent = fileContent.replace(/(\/\/[ \w<>?!0-9]+)/g, '');
 	fileContent = fileContent.replace(/(\r\n)/g, ' ');
-	fileContent = fileContent.replace(/\t+/g, ' ');
-	fileContent = fileContent.replace(/  +/g, ' ');
+	fileContent = fileContent.replace(/(\t+)(?=(?:[^"]*"[^"]*")*[^"]*$)/g, ' ');
+	fileContent = fileContent.replace(/( +)(?=(?:[^"]*"[^"]*")*[^"]*$)/g, ' ');
 	fileContent = fileContent.replace(/( = )/g, '=');
 	fs.writeFileSync(jsFiles[i], fileContent);
 }
