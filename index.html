@@ -43,7 +43,10 @@
 				<div><button id="makeItPrettyBtn" class="btn" type="button">Make It Pretty</button></div>
 			</div>
 		</script>
-		<script id="prettyXmlsTemplate" type="text/html"></script>
+		<script id="prettyXmlsTemplate" type="text/html">
+			<div id="mainSearchArea"><input type="text" id="filterText" name="filterText" placeholder="Text or expression to filter list..." /></div>
+			<div id="itemsContainer"></div>
+		</script>
 		<script id="prettyXmlTemplate" type="text/html">
 			<div id="<%=id%>" class="prettyXml">
 				<div class="prettyXmlHeader">
