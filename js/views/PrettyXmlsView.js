@@ -31,9 +31,9 @@ define(function(require) {
 				this.$('.prettyXml').each(function(index, item) {
 					var rawXml = $(this).find('.prettyXmlTextRaw').text();
 					if(validRegexp) {
-						pattern.test(rawXml) ? $(this).show('fast') : $(this).hide();
+						pattern.test(rawXml) ? $(this).css('display', 'block') : $(this).css('display', 'none');
 					} else {
-						rawXml.toLowerCase().indexOf(text.toLowerCase()) != -1 ? $(this).show('fast') : $(this).hide();
+						rawXml.toLowerCase().indexOf(text.toLowerCase()) != -1 ? $(this).css('display', 'block') : $(this).css('display', 'none');
 					}
 				});
 			}
@@ -43,7 +43,7 @@ define(function(require) {
 			var element = view.render().$el;
 			this.$el.find("#itemsContainer").prepend(element);
 			element.find(".prettyXml").show("fast", function(){
-				$('#mainSearchArea').show('fast');
+				$('#mainSearchArea').css('display', 'block');
 			});
 			console.log("Item " + item.get("id") + " added to list...");
 		},
